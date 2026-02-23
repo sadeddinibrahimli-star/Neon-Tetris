@@ -1,0 +1,128 @@
+body {
+    background-image: url(vecteezy_black-brick-wall-for-decoration-or-background-vector_14714003-1.jpg);
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.side-panel {
+    position: absolute;
+    left: 71%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    z-index: 10;
+}
+
+.nextBlock,
+.hiScore {
+    width: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.miniGrid {
+    width: 15vh;
+    height: 15vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 4%;
+}
+
+.miniGrid div {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.blockShower,
+.scoreLabel {
+    color: yellow;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.scoreScreen {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    border: 2px solid white;
+    background-color: black;
+    color: yellow;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contanier {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.border {
+    width: 40vh;
+    height: 80vh;
+    background-color: azure;
+    z-index: 1;
+    position: absolute;
+    border-radius: 4%;
+}
+
+.mainGameScreen {
+    width: 38vh;
+    height: 78vh;
+    z-index: 2;
+    background-color: black;
+    position: absolute;
+    border-radius: 4%;
+}
+
+.grid {
+    width: 38vh;
+    height: 78vh;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    z-index: 3;
+}
+
+.grid div {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+.blocks {
+    background-color: aqua;
+}
+
+.startButton {
+    z-index: 4;
+    position: absolute;
+}
+
+.startButton button {
+    width: 15vh;
+    height: 5vh;
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none !important;
+}
+
+video {
+    pointer-events: none;
+}
