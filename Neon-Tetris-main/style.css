@@ -90,8 +90,8 @@ body {
     height: 78vh;
     background-color: rgb(32, 32, 32);
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(10, 5fr);
+    grid-template-rows: repeat(40, 4fr);
     z-index: 3;
 }
 

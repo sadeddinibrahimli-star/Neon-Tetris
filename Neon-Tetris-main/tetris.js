@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('tetrisCanvas');
-    const ctx = canvas.getContext('2d');
-
-    function drawBlock(x, y, color) {
-        ctx.fillStyle = color;
-        ctx.fillRect(x * 24, y * 24, 24, 24); // 24px-lik bloklar
-        ctx.strokeStyle = "white";
-        ctx.strokeRect(x * 24, y * 24, 24, 24);
-    }
     const grid = document.querySelector('.grid')
+
+    // 200 oyun xanası + 10 alt sərhəd (taken) dinamik yaradılır
+    for (let i = 0; i < 410; i++) {
+        const square = document.createElement('div')
+        if (i >= 400) square.classList.add('taken')
+        grid.appendChild(square)
+    }
+
     let squares = Array.from(document.querySelectorAll('.grid div'))
     const scoreDisplay = document.getElementById('score')
     const highScoreDisplay = document.getElementById('high-score')
@@ -101,8 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let random = Math.floor(Math.random() * blocks.length)
     let current = blocks[random][currentRotation]
     let isPaused = false;
-    // startScreenSong.play()
+    startScreenSong.play();
     startScreenSong.loop = true
+
 
     function draw() {
         current.forEach(index => {
@@ -217,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             continueBtn.classList.add('show');
         }
     }
+
     continueBtn.addEventListener('click', () => {
         if (isPaused) {
             timerId = setInterval(moveDown, speed);
@@ -225,19 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
             continueBtn.classList.remove('show');
         }
     });
-
-    function control(e) {
-        if (e.keyCode === 80) {
-            if (timerId) pause();
-        }
-        if (isPaused) return;
-
-        if (e.keyCode === 37) moveLeft()
-        else if (e.keyCode === 38) rotate()
-        else if (e.keyCode === 39) moveRight()
-        else if (e.keyCode === 40) moveDown()
-        else if (e.keyCode === 32) skip()
-    }
 
     function checkRotatedPosition(P) {
         P = P || currentPosition
@@ -287,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addScore() {
-        for (let i = 0; i < 199; i += width) {
+        for (let i = 0; i < 399; i += width) {
             const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9]
 
             if (row.every(index => squares[index].classList.contains('taken'))) {
@@ -302,7 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     levelUp.play();
                     speed -= 100
                     timerId = setInterval(moveDown, speed)
-                    levelUp.play();
                 }
                 if (score % 1000 === 0) score1000.play();
 
@@ -317,7 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
 
     function gameOver() {
         explosion.style.opacity = "0"
@@ -340,7 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
         restartBtn.classList.remove('hidden')
         startBtnContainer.classList.remove('hidden')
         startBtn.classList.add('hidden')
-        speed = 1000
         pause();
     }
 
@@ -349,7 +334,6 @@ document.addEventListener('DOMContentLoaded', () => {
         songs.forEach(song => {
             song.pause();
             song.currentTime = 0;
-            song.loop = false;
         });
         songs[randomizer].volume = 0.3;
         songs[randomizer].loop = true;
@@ -383,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timerId);
         timerId = null;
         squares.forEach((square, index) => {
-            if (index < 200) {
+            if (index < 400) { // 200-ü 400 etdik
                 square.classList.remove('taken', 'blocks')
                 square.style.backgroundColor = ''
             }
