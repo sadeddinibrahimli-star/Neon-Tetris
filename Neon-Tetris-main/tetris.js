@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('tetrisCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function drawBlock(x, y, color) {
+        ctx.fillStyle = color;
+        ctx.fillRect(x * 24, y * 24, 24, 24); // 24px-lik bloklar
+        ctx.strokeStyle = "white";
+        ctx.strokeRect(x * 24, y * 24, 24, 24);
+    }
     const grid = document.querySelector('.grid')
     let squares = Array.from(document.querySelectorAll('.grid div'))
     const scoreDisplay = document.getElementById('score')
@@ -26,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         new Audio('song6.mp3'),
         new Audio('song4.mp3')
     ]
-
     let nextRandom = 0
     let timerId = null
     let score = 0
@@ -45,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
     const lTetromino = [
         [1, width + 1, width * 2 + 1, 2],
-        [width, width + 1, width + 2, width * 2],
+        [width, width + 1, width + 2, width * 2 + 2],
         [1, width + 1, width * 2 + 1, width * 2],
         [width, width * 2, width * 2 + 1, width * 2 + 2]
     ]
@@ -93,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let random = Math.floor(Math.random() * blocks.length)
     let current = blocks[random][currentRotation]
     let isPaused = false;
+    // startScreenSong.play()
+    startScreenSong.loop = true
 
     function draw() {
         current.forEach(index => {
