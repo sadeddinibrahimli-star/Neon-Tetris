@@ -31,12 +31,14 @@
                 <div></div>
             </div>
         </div>
-
         <div class="hiScore">
-            <div class="scoreLabel">High-SCORE</div>
+            <div class="scoreLabel">Highest</div>
             <div id="high-score" class="scoreScreen">0</div>
             <div class="scoreLabel">CURRENT</div>
             <div id="score" class="scoreScreen">0</div>
+            <div class="level"></div>
+            <div class="scoreLabel">Level</div>
+            <div id="levelCounter" class="scoreScreen">0</div>
         </div>
     </div>
 
@@ -255,11 +257,13 @@
         </div>
         <div class="border"></div>
         <div class="mainGameScreen"></div>
-        <div class="startButton" id="startButton"><video id="myVideo" autoplay loop muted playsinline oncontextmenu="return false;">
-        <source src="explotion.webm" type="video/webm">
-    </video>
-            <button id="startBtn">Start</button>
+        <div class="startButton" id="startButton">
+            <video id="explotion" class="explotion">
+                <source src="explotion.webm" type="video/webm">
+            </video>
+            <button id="startBtn" class="startBtn">Start</button>
             <button id="restartBtn" class="hidden">Restart Game</button>
+            <button id="continueBtn" class="continue">Continue</button>
         </div>
     </div>
     <script src="tetris.js" charset="UTF-8"></script>

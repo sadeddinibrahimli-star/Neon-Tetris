@@ -7,8 +7,8 @@ body {
 
 .side-panel {
     position: absolute;
-    left: 71%;
-    top: 10%;
+    left: 71vw;
+    top: 10vw;
     display: flex;
     flex-direction: column;
     gap: 5vh;
@@ -29,7 +29,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    background-color: black;
+    background-color: rgb(34, 34, 34);
     border: 2px solid white;
     border-radius: 4%;
 }
@@ -44,19 +44,19 @@ body {
     font-family: Arial, sans-serif;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 2vw;
 }
 
 .scoreScreen {
     width: 100%;
-    padding: 10px 0;
+    padding: 1vh 0;
     text-align: center;
     border: 2px solid white;
     background-color: black;
     color: yellow;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 1vw;
 }
 
 .contanier {
@@ -88,7 +88,7 @@ body {
 .grid {
     width: 38vh;
     height: 78vh;
-    background-color: black;
+    background-color: rgb(32, 32, 32);
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(20, 1fr);
@@ -125,4 +125,107 @@ body {
 
 video {
     pointer-events: none;
+}
+
+.explotion {
+    opacity: 0;
+    position: absolute;
+    top: -15dvw;
+}
+
+.blocks {
+    background-color: transparent;
+    border-radius: 6px;
+    box-shadow: 0 0 8px currentColor, 0 0 15px currentColor, inset 0 0 8px currentColor, inset 0 0 4px rgb(255, 255, 255);
+    margin: 2px;
+    box-sizing: border-box;
+}
+
+.grid {
+    background-color: #1d1d1d;
+}
+
+.continue {
+    display: none;
+}
+
+.startButton .continue.show {
+    display: block !important;
+}
+
+.continue button {
+    width: 15vh;
+    height: 5vh;
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(vecteezy_black-brick-wall-for-decoration-or-background-vector_14714003-1.jpg);
+    background-color: #0a0a0c;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.miniGrid {
+    background-color: #050505;
+    border: 2px solid #00f3ff;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.blockShower,
+.scoreLabel {
+    color: #00f3ff;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.scoreScreen {
+    border: 2px solid #ff00ff;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ff00ff;
+    text-shadow: 0 0 8px #ff00ff;
+    box-shadow: inset 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+.border {
+    background-color: transparent;
+    border: 3px solid #fff;
+    box-shadow: 0 0 20px #00f3ff, inset 0 0 20px #ff00ff;
+}
+
+.mainGameScreen {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.grid {
+    background-color: #080808;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 10% 5%;
+}
+
+.startButton button,
+.continue button {
+    background-color: transparent;
+    color: #00f3ff;
+    border: 2px solid #00f3ff;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+    transition: 0.3s;
+}
+
+.startButton button:hover,
+.continue button:hover {
+    background-color: #00f3ff;
+    color: #000;
+    box-shadow: 0 0 25px #00f3ff;
+}
+
+.blocks {
+    background-color: transparent;
+    box-shadow: 0 0 10px currentColor, inset 0 0 5px currentColor, inset 0 0 3px #fff;
 }
